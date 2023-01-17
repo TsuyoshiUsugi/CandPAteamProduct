@@ -1,0 +1,79 @@
+﻿{
+  "name": "m37cd-qexhx",
+  "maxBlock": 5,
+  "BPM": 114,
+  "offset": 0,
+  "notes": [
+    {
+      "LPB": 4,
+      "num": 0,
+      "block": 0,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 4,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 8,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 12,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 19,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 23,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 27,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 31,
+      "block": 4,
+      "type": 1,
+      "notes": []
+    },
+    {
+      "LPB": 4,
+      "num": 34,
+      "block": 4,
+      "type": 2,
+      "notes": [
+        {
+          "LPB": 4,
+          "num": 38,
+          "block": 4,
+          "type": 2,
+          "notes": []
+        }
+      ]
+    }
+  ]
+}
