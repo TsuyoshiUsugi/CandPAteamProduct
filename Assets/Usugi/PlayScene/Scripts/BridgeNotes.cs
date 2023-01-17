@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class BridgeNotes : MonoBehaviour
 {
-    [SerializeField] float _notesSpeed = 8;
+    float _notesSpeed;
+    public float NotesSpeed { get => _notesSpeed; set => _notesSpeed = value; }
+
+    MusicManager _musicManager;
+
+    private void Start()
+    {
+        _musicManager = FindObjectOfType<MusicManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        transform.position -= transform.forward * Time.deltaTime * _notesSpeed;
+        if(_musicManager.CurrentState == MusicManager.GameState.Playing)
+        {
+            transform.position -= transform.forward * Time.deltaTime * _notesSpeed;
+        }
+
     }
 }
