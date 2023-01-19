@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class SceneChange : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void OnClickButton()
+    public void OnClickSelect()
     {
         SceneManager.LoadScene("test");
+    }
+
+    public void OnClickBack()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
