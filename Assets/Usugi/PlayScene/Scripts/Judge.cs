@@ -3,7 +3,10 @@ using UnityEngine;
 public class Judge : MonoBehaviour
 {
     [SerializeField] private GameObject[] _messageObj;//プレイヤーに判定を伝えるゲームオブジェクト
-    [SerializeField] BridgeNotesManager _notesManager;//スクリプト「notesManager」を入れる変数
+    [SerializeField] BridgeNotesGenerator _notesManager;//スクリプト「notesManager」を入れる変数
+    float _perfectTime = 0.1f;
+    float _greatTime = 0.15f;
+    float _missTime = 0.2f;
 
     void Update()
     {
@@ -11,12 +14,16 @@ public class Judge : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.S))
         {
-            Judgement(Mathf.Abs(Time.time - _notesManager._notesTime[0] + PlaySceneManager.instance.StartTime));
-
+            
+            if (_notesManager._laneNum[0] == 0)//押されたボタンはレーンの番号とあっているか？
+            {
+                
+                Judgement(Mathf.Abs(Time.time - (_notesManager._notesTime[0] + PlaySceneManager.instance.StartTime)));
+            }
         }
 
         //ミス
-        if (Time.time > _notesManager._notesTime[0] + 0.2f + PlaySceneManager.instance.StartTime)
+        if (Time.time > _notesManager._notesTime[0] + _missTime + PlaySceneManager.instance.StartTime)
         {
             message(3);
             deleteData();
@@ -27,35 +34,32 @@ public class Judge : MonoBehaviour
     }
     void Judgement(float timeLag)
     {
-        if (timeLag <= 0.10)
+        switch (timeLag)
         {
-            Debug.Log("Perfect");
-            message(0);
-            PlaySceneManager.instance.perfect++;
-            PlaySceneManager.instance.combo++;
-            deleteData();
-        }
-        else
-        {
-            if (timeLag <= 0.15)
-            {
+            case float when timeLag <= _perfectTime:
+                Debug.Log("Perfect");
+                message(0);
+                PlaySceneManager.instance.perfect++;
+                PlaySceneManager.instance.combo++;
+                deleteData();
+                break;
+
+            case float when timeLag <= _greatTime:
                 Debug.Log("Great");
                 message(1);
                 PlaySceneManager.instance.great++;
                 PlaySceneManager.instance.combo++;
                 deleteData();
-            }
-            else
-            {
-                if (timeLag <= 0.20)
-                {
-                    Debug.Log("Bad");
-                    message(2);
-                    PlaySceneManager.instance.bad++;
-                    PlaySceneManager.instance.combo = 0;
-                    deleteData();
-                }
-            }
+                break;
+
+           case float when timeLag <= _missTime:
+                Debug.Log("Bad");
+                message(2);
+                PlaySceneManager.instance.bad++;
+                PlaySceneManager.instance.combo = 0;
+                deleteData();
+                break;
+
         }
     }
 
