@@ -52,6 +52,8 @@ public class SongDataLoader : MonoBehaviour
 
         _highScore.text = $"{_songDataList[index].HighScore}pt";
 
+        SongInfoManager.Instance.SongPath = _songDataList[index].MusicFilePath;
+
         Debug.Log("‰Ÿ‚³‚ê‚½");
     }
 

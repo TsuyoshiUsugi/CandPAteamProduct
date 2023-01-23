@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : SingletonMonobehavior<MusicManager>
 {
     AudioSource _audio;
     AudioClip _music;
-    [SerializeField] string _songName;
-    GameState _currentState;
-    public GameState CurrentState => _currentState;
+
+    [SerializeField] GameState _currentState;
+    public GameState CurrentState { get => _currentState; set => _currentState = value; }
+
+    float _startTime;
+    public float StartTime => _startTime;
 
     // Start is called before the first frame update
     void Start()
     {
         _audio = GetComponent<AudioSource>();
-        _music = Resources.Load("Music/" + _songName) as AudioClip;
+        _music = Resources.Load("Music/" + SongInfoManager.Instance.SongPath) as AudioClip;
         _audio.clip = _music;
         _currentState = GameState.Ready;
     }
@@ -22,8 +25,7 @@ public class MusicManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) && _currentState == GameState.Ready)
         {
-            PlaySceneManager.instance.Start = true;
-            PlaySceneManager.instance.StartTime = Time.time;
+            _startTime = Time.time;
 
             _currentState = GameState.Playing;
             _audio.Play();
@@ -35,5 +37,6 @@ public class MusicManager : MonoBehaviour
     {
         Playing,
         Ready,
+        End,
     }
 }

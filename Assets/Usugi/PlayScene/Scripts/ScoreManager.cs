@@ -1,16 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySceneManager : MonoBehaviour
+/// <summary>
+/// ƒXƒRƒAî•ñ‚ğ•Û‚·‚é
+/// </summary>
+public class ScoreManager : MonoBehaviour
 {
-    public static PlaySceneManager instance = null;
-
-    public int songID;
-    public float noteSpeed;
-
-    public bool Start;
-    public float StartTime;
+    public static ScoreManager Instance = null;
 
     public int combo;
     public int score;
@@ -22,9 +17,9 @@ public class PlaySceneManager : MonoBehaviour
 
     public void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
