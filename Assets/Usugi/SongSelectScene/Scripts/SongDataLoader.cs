@@ -1,34 +1,69 @@
-using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+/// <summary>
+/// リストにあるsongDataをロードして曲選択ボタンを生成する
+/// </summary>
 public class SongDataLoader : MonoBehaviour
 {
     [Header("参照")]
-    [SerializeField, Header("曲データのリスト")] List<ScriptableObject> _songDataList;
+    [SerializeField, Header("曲データのリスト")] List<ShowSongDateObj> _songDataList;
     [SerializeField] GameObject _songPrefab;
+    [SerializeField] GameObject _anker;
 
-    string _songDataDir = @"C:\Users\qesul\Documents\CandPAteamProduct\Assets\Resources\SongData";
+    [SerializeField] Text _songName;
+    [SerializeField] Text _diffCulty;
+    [SerializeField] Text _highScore;
 
     // Start is called before the first frame update
     void Start()
     {
-        int fileCount = Directory.GetFiles(_songDataDir, "*.asset", SearchOption.TopDirectoryOnly).Length;
-        DirectoryInfo di = new System.IO.DirectoryInfo(_songDataDir);
-        FileInfo[] files =
-            di.GetFiles("*.txt", System.IO.SearchOption.AllDirectories);
-
-        foreach (var file in files)
-        {
-            //_songDataList.Add((ScriptableObject)file);
-        }
-
         if (_songDataList.Count == 0) return;
 
+        InstantiateSongSelectButton();
+
+        ShowInfo(0);
+    }
+
+    /// <summary>
+    /// 曲選択ボタンを生成する
+    /// </summary>
+    private void InstantiateSongSelectButton()
+    {
         for (int i = 0; i < _songDataList.Count; i++)
         {
-            Instantiate(_songPrefab);
+            GameObject songPrefab = Instantiate(_songPrefab);
+            songPrefab.gameObject.transform.SetParent(_anker.transform);
+            Debug.Log(i);
+            int index = i;
+            songPrefab.GetComponent<Button>().onClick.AddListener(() => ShowInfo(index));
         }
     }
 
+    /// <summary>
+    /// 曲選択ボタンが押された時の処理を追加する
+    /// </summary>
+    void ShowInfo(int index)
+    {
+        _songName.text = _songDataList[index].SongName;
+
+        _diffCulty.text = ReturnDiffText(index);
+
+        _highScore.text = $"{_songDataList[index].HighScore}pt";
+
+        Debug.Log("押された");
+    }
+
+    string ReturnDiffText(int index)
+    {
+        string diff = "";
+
+        for (int i = 0; i < _songDataList[index].SongDiff; i++)
+        {
+            diff += "★";
+        }
+
+        return diff;
+    }
 }
