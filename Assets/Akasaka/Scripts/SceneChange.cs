@@ -8,7 +8,7 @@ public class SceneChange : MonoBehaviour
     // Start is called before the first frame update
     public void OnClickSelect()
     {
-        SceneManager.LoadScene("test");
+        SceneManager.LoadScene("SongSelectScene");
     }
 
     public void OnClickBack()

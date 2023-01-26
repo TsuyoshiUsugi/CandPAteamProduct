@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.qesulive.samplepackage": {
+      "version": "https://github.com/TsuyoshiUsugi/MyLib.git?path=/TsuyoshiLibray/Packages/TsuyoshiLibrary/",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c23d0793c82f7b498e999d572c3df728359e41a6"
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.15",
       "depth": 0,

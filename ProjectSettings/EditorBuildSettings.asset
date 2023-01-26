@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Akasaka/Scenes/TitleScene.unity
     guid: 9c91184cd2ef8ed4ca1d64e27911423a
   - enabled: 1
+    path: Assets/Usugi/SongSelectScene/SceneData/SongSelectScene.unity
+    guid: 413ba06d0ac8ef74fb1886259518f932
+  - enabled: 1
+    path: Assets/Usugi/PlayScene/PlayScene02.unity
+    guid: 5317671b5c3bb864ab676b8eca507cfa
+  - enabled: 1
     path: Assets/Akasaka/Scenes/test.unity
     guid: 7a799eb4d5cb3304992cc79192a1eb0f
   m_configObjects: {}
