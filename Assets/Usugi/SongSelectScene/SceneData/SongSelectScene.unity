@@ -634,7 +634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _songDataList:
-  - {fileID: 11400000, guid: 35b413c480e6b9143a575433b0bac778, type: 2}
+  - {fileID: 11400000, guid: eb00420fb540b5748a2871d377e45f38, type: 2}
+  - {fileID: 11400000, guid: 0f65ceb7f21df29449c4a3d47d7d16b6, type: 2}
   _songPrefab: {fileID: 5338331325171271063, guid: d78352cd56c63c04a9f4a7804c2dcd62, type: 3}
   _anker: {fileID: 1099572350}
   _songName: {fileID: 2091453649}
@@ -828,6 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroy: 1
+  _songPath: 
   _startButton: {fileID: 1444109334}
   _playScene: PlayScene02
 --- !u!4 &1113093599
@@ -1110,7 +1112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -159, y: 68}
+  m_AnchoredPosition: {x: -257.8, y: 68}
   m_SizeDelta: {x: 272.13123, y: 96.663086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1444109334

@@ -23,7 +23,6 @@ public class ScoreManager : MonoBehaviour
 
     public void Awake()
     {
-
         if (Instance == null)
         {
             Instance = this;

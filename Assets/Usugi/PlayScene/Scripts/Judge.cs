@@ -50,12 +50,9 @@ public class Judge : MonoBehaviour
         {
             message(3);
             deleteData();
-            Debug.Log("Miss");
             ScoreManager.Instance._miss++;
             ScoreManager.Instance._combo.Value = 0;
-        }
-
-        
+        }     
     }
 
     void OnClickJudgement(float timeLag)
@@ -63,7 +60,6 @@ public class Judge : MonoBehaviour
         switch (timeLag)
         {
             case float when timeLag <= _perfectTime:
-                Debug.Log("Perfect");
                 message(0);
                 ScoreManager.Instance._perfect++;
                 ScoreManager.Instance._combo.Value++;
@@ -71,7 +67,6 @@ public class Judge : MonoBehaviour
                 break;
 
             case float when timeLag <= _greatTime:
-                Debug.Log("Great");
                 message(1);
                 ScoreManager.Instance._great++;
                 ScoreManager.Instance._combo.Value++;
@@ -79,7 +74,6 @@ public class Judge : MonoBehaviour
                 break;
 
            case float when timeLag <= _missTime:
-                Debug.Log("Bad");
                 message(2);
                 ScoreManager.Instance._bad++;
                 ScoreManager.Instance._combo.Value = 0;
