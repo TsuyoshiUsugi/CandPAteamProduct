@@ -10,6 +10,11 @@ public class Judge : MonoBehaviour
     float _greatTime = 0.15f;
     float _missTime = 0.2f;
 
+    private void Start()
+    {
+        ScoreManager.Instance._songName = SongInfoManager.Instance.SongPath;
+    }
+
     void Update()
     {
         if (MusicManager.Instance.CurrentState.Value != MusicManager.GameState.Playing) return;

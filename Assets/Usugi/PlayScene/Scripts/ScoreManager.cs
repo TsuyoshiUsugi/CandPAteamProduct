@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UniRx;
 
 /// <summary>
@@ -8,6 +9,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance = null;
 
+    public string _songName;
     public ReactiveProperty<int> _combo;
     public ReactiveProperty<int> _score;
 
@@ -21,6 +23,8 @@ public class ScoreManager : MonoBehaviour
     const int _badScorePoint = -50;
     const int _missScorePoint = -100;
 
+    [SerializeField] List<ShowSongDateObj> _songList;
+
     public void Awake()
     {
         if (Instance == null)
@@ -32,6 +36,8 @@ public class ScoreManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        MusicManager.Instance.CurrentState.Where(state => state == MusicManager.GameState.End).Subscribe(_ => SaveHighScore());
     }
 
     private void Update()
@@ -46,5 +52,22 @@ public class ScoreManager : MonoBehaviour
             + _greatScorePoint * _great
             + _badScorePoint * _bad
             + _missScorePoint * _miss; 
+    }
+
+    private void SaveHighScore()
+    {
+        foreach (var song in _songList)
+        {
+            if(song.MusicFilePath == _songName)
+            {
+                Debug.Log("�Ă΂ꂽ");
+
+                if(song.HighScore < _score.Value )
+                {
+                    song.HighScore = _score.Value;
+                    Debug.Log("touroku");
+                }
+            }
+        }
     }
 }
