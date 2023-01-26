@@ -15,7 +15,7 @@ public class BridgeNotesGenerator : MonoBehaviour
 
     [SerializeField] private float _notesSpeed;
 
-    GameObject _noteObj;
+    [SerializeField] GameObject _noteObj;
     [SerializeField] GameObject _jumpObj;
 
 

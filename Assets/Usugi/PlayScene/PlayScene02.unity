@@ -4346,6 +4346,7 @@ MonoBehaviour:
   _dontDestroy: 0
   _currentState:
     value: 0
+  _nextScene: ResultScene
 --- !u!4 &2119723974
 Transform:
   m_ObjectHideFlags: 0
