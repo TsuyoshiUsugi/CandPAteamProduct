@@ -27,6 +27,13 @@ public class ScoreManager : MonoBehaviour
 
     public void Awake()
     {
+        _combo.Value = 0;
+        _score.Value = 0;
+        _perfect = 0;
+        _great = 0;
+        _bad = 0;
+        _miss = 0;
+
         if (Instance == null)
         {
             Instance = this;
