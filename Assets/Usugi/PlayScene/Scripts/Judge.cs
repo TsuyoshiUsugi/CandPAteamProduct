@@ -52,7 +52,7 @@ public class Judge : MonoBehaviour
             deleteData();
             Debug.Log("Miss");
             ScoreManager.Instance._miss++;
-            ScoreManager.Instance._combo = 0;
+            ScoreManager.Instance._combo.Value = 0;
         }
 
         
@@ -66,7 +66,7 @@ public class Judge : MonoBehaviour
                 Debug.Log("Perfect");
                 message(0);
                 ScoreManager.Instance._perfect++;
-                ScoreManager.Instance._combo++;
+                ScoreManager.Instance._combo.Value++;
                 deleteData();
                 break;
 
@@ -74,7 +74,7 @@ public class Judge : MonoBehaviour
                 Debug.Log("Great");
                 message(1);
                 ScoreManager.Instance._great++;
-                ScoreManager.Instance._combo++;
+                ScoreManager.Instance._combo.Value++;
                 deleteData();
                 break;
 
@@ -82,7 +82,7 @@ public class Judge : MonoBehaviour
                 Debug.Log("Bad");
                 message(2);
                 ScoreManager.Instance._bad++;
-                ScoreManager.Instance._combo = 0;
+                ScoreManager.Instance._combo.Value = 0;
                 deleteData();
                 break;
 

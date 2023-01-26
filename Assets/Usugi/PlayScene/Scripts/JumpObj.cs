@@ -43,8 +43,6 @@ public class JumpObj : MonoBehaviour
                 _firstNote = note.gameObject;
                 break;
             }
-
-            Debug.Log("åüçıíÜ");
         }
     }
 
@@ -58,7 +56,7 @@ public class JumpObj : MonoBehaviour
         }
         else if(_currentState == ObjState.playing)
         {
-
+            //Jumpä÷êî
         }
     }
 }

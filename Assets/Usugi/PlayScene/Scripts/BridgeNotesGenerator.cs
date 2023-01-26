@@ -5,7 +5,9 @@ using UnityEngine;
 public class BridgeNotesGenerator : MonoBehaviour
 {
     //‘ƒm[ƒc”
-    public int _noteNum;
+    static int _noteNum;
+    public static int NotesNum => _noteNum;
+
     //‹È–¼
     [SerializeField] private string songName;
 
