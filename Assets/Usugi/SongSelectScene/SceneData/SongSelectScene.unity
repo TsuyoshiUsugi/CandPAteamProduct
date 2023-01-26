@@ -1166,7 +1166,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dontDestroy: 1
   _songPath: 
-  _startButton: {fileID: 1444109334}
+  _startButton:
+    serializedGuid: 51a5d3a605666e489dc54a4a1c7b7525
+    cachedName: StartButton
+    cachedScene: {fileID: 102900000, guid: 413ba06d0ac8ef74fb1886259518f932, type: 3}
   _playScene: PlayScene02
 --- !u!4 &1113093599
 Transform:
@@ -1440,6 +1443,7 @@ GameObject:
   - component: {fileID: 1444109336}
   - component: {fileID: 1444109335}
   - component: {fileID: 1444109334}
+  - component: {fileID: 1444109337}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1550,6 +1554,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444109332}
   m_CullTransparentMesh: 1
+--- !u!114 &1444109337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444109332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bbc2c1e63e98543830eec78d976795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializedGuid: 51a5d3a605666e489dc54a4a1c7b7525
 --- !u!1 &1753543851
 GameObject:
   m_ObjectHideFlags: 0

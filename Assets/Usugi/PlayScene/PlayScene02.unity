@@ -704,7 +704,7 @@ MonoBehaviour:
   _originPos: {x: 0.53, y: 8.942322, z: -13.46}
   _jumpForce: {x: 0, y: 200, z: 0}
   _audioSource: {fileID: 224396328}
-  _audioClip: {fileID: 8300000, guid: 8910d5d801aa1b847906f08ed7c71247, type: 3}
+  _audioClip: {fileID: 8300000, guid: 5f6e4c51f97129b439edd13b03880422, type: 3}
 --- !u!54 &224396326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -744,8 +744,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 5f6e4c51f97129b439edd13b03880422, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   _lofiField: {fileID: 1101179938}
   _fancyField: {fileID: 976303641}
   _lofiSongName: Lofi
-  _fancySongName: kawaii future bass
+  _fancySongName: Fancy2
 --- !u!4 &651400661
 Transform:
   m_ObjectHideFlags: 0
@@ -3814,7 +3814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1528030854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,14 +3822,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528030853}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 615b39d12d602db4ebb81bfb416c1316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroy: 0
   _songPath: Test5
-  _startButton: {fileID: 0}
+  _startButton:
+    serializedGuid: 00000000000000000000000000000000
+    cachedName: 
+    cachedScene: {fileID: 0}
   _playScene: 
 --- !u!4 &1528030855
 Transform:
@@ -3995,7 +3998,7 @@ MonoBehaviour:
   _originPos: {x: 0.53, y: 8.942322, z: -13.46}
   _jumpForce: {x: 0, y: 200, z: 0}
   _audioSource: {fileID: 1595053767}
-  _audioClip: {fileID: 8300000, guid: 8910d5d801aa1b847906f08ed7c71247, type: 3}
+  _audioClip: {fileID: 8300000, guid: 5f6e4c51f97129b439edd13b03880422, type: 3}
 --- !u!82 &1595053767
 AudioSource:
   m_ObjectHideFlags: 0

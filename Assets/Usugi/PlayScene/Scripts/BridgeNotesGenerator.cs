@@ -32,7 +32,7 @@ public class BridgeNotesGenerator : MonoBehaviour
         {
             _noteObj = _notes[0];
         }
-        else if(SongInfoManager.Instance.SongPath == "kawaii future bass")
+        else if(SongInfoManager.Instance.SongPath == "Fancy2")
         {
             _noteObj = _notes[1];
         }

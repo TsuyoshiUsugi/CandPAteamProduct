@@ -17,22 +17,24 @@ public class SongInfoManager : SingletonMonobehavior<SongInfoManager>
 
     private void Start()
     {
-        _startButton.gameObject.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(_playScene));
-        _songSelectScene = SceneManager.GetActiveScene();
-
         
+        _startButton.gameObject.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(_playScene));
+        
+
+        SceneManager.sceneLoaded += SubscribeButtonEvent;
+    }
+
+    void SubscribeButtonEvent(Scene scene, LoadSceneMode mode)
+    {
+        if(scene == _songSelectScene)
+        {
+            _startButton.gameObject.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(_playScene));
+
+        }
     }
 
     private void Update()
     {
-        Debug.Log(_startButton.gameObject.GetComponent<Button>().onClick.GetPersistentEventCount());
-
-        if(SceneManager.GetActiveScene() == _songSelectScene)
-        {
-            if(_startButton.gameObject.GetComponent<Button>().onClick.GetPersistentEventCount() == 0)
-            {
-                _startButton.gameObject.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(_playScene));
-            }
-        }
+        Debug.Log(_songSelectScene.name);
     }
 }
