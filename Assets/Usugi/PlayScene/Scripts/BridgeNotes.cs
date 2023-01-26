@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BridgeNotes : MonoBehaviour
 {
+    int _notesNum;
+    public int NotesNum { get => _notesNum; set => _notesNum = value; }
+
     float _notesSpeed;
     public float NotesSpeed { get => _notesSpeed; set => _notesSpeed = value; }
 

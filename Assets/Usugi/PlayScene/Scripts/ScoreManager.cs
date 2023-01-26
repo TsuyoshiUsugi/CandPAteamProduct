@@ -7,13 +7,13 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance = null;
 
-    public int combo;
-    public int score;
+    public int _combo;
+    public int _score;
 
-    public int perfect;
-    public int great;
-    public int bad;
-    public int miss;
+    public int _perfect;
+    public int _great;
+    public int _bad;
+    public int _miss;
 
     public void Awake()
     {

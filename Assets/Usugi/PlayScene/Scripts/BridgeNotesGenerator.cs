@@ -16,15 +16,16 @@ public class BridgeNotesGenerator : MonoBehaviour
 
     [SerializeField] private float _notesSpeed;
     [SerializeField] GameObject _noteObj;
+    [SerializeField] GameObject _jumpObj;
 
-    void OnEnable()
+    void Start()
     {
-        Load(songName);
+        Load();
     }
 
-    private void Load(string SongName)
+    private void Load()
     {
-        string inputString = Resources.Load<TextAsset>(SongName).ToString();
+        string inputString = Resources.Load<TextAsset>(SongInfoManager.Instance.SongPath).ToString();
         Data inputJson = JsonUtility.FromJson<Data>(inputString);
 
         _noteNum = inputJson.notes.Length;
@@ -41,7 +42,15 @@ public class BridgeNotesGenerator : MonoBehaviour
             float z = _notesTime[i] * _notesSpeed;
 
             GameObject notes = Instantiate(_noteObj, new Vector3(inputJson.notes[i].block, 0.55f, z), Quaternion.identity);
-            notes.GetComponent<BridgeNotes>().NotesSpeed = _notesSpeed;
+            
+            if(i == 0)
+            {
+                _jumpObj.transform.position = new Vector3(inputJson.notes[i].block, 0.55f, z);
+            }
+
+            BridgeNotes thisBridgeNotes = notes.GetComponent<BridgeNotes>();
+            thisBridgeNotes.NotesSpeed = _notesSpeed;
+            thisBridgeNotes.NotesNum = i;
 
             _notesObj.Add(notes);
         }
