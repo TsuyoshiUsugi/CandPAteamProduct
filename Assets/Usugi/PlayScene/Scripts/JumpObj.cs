@@ -15,10 +15,14 @@ using UnityEngine;
 /// </summary>
 public class JumpObj : MonoBehaviour
 {
-    ObjState _currentState;
+    [SerializeField] ObjState _currentState;
+    public ObjState CurrentState { get => _currentState; set => _currentState = value; }
+
+    BridgeNotesGenerator _bridgeNotesGenerator;
+
     GameObject _firstNote;
 
-    enum ObjState
+    public enum ObjState
     {
         ready,
         playing,
@@ -29,6 +33,15 @@ public class JumpObj : MonoBehaviour
         _currentState = ObjState.ready;
 
         SearchFirstNote();
+
+        GetLandingTime();
+    }
+
+    void GetLandingTime()
+    {
+        BridgeNotesGenerator bridgeNotesGenerator = FindObjectOfType<BridgeNotesGenerator>();
+
+        _bridgeNotesGenerator = bridgeNotesGenerator;
     }
 
     private void SearchFirstNote()
@@ -56,7 +69,21 @@ public class JumpObj : MonoBehaviour
         }
         else if(_currentState == ObjState.playing)
         {
-            //Jumpä÷êî
+            if(_bridgeNotesGenerator._notesTime.Count == 0)
+            {
+                GetLandingTime();
+ 
+            }
+
+            if (Mathf.Abs(Time.time - (_bridgeNotesGenerator._notesTime[0] + MusicManager.Instance.StartTime)) <= 0.8 && Mathf.Abs(Time.time - (_bridgeNotesGenerator._notesTime[0] + MusicManager.Instance.StartTime)) > 0)
+            {
+                //íÖínéû
+                transform.position = new Vector3(0, 1, 0);
+            }
+            else
+            {
+                transform.position = new Vector3(0, 2, 0);
+            }
         }
     }
 }

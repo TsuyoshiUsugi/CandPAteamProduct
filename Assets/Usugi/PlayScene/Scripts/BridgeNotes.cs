@@ -12,7 +12,6 @@ public class BridgeNotes : MonoBehaviour
 
     MusicManager _musicManager;
 
-    [SerializeField] List<GameObject> _notes;
 
     private void Start()
     {

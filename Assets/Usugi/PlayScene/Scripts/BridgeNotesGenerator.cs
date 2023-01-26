@@ -16,8 +16,6 @@ public class BridgeNotesGenerator : MonoBehaviour
     [SerializeField] private float _notesSpeed;
 
     [SerializeField] GameObject _noteObj;
-    [SerializeField] GameObject _jumpObj;
-
 
     [SerializeField] List<GameObject> _notes;
 
@@ -59,11 +57,6 @@ public class BridgeNotesGenerator : MonoBehaviour
             float z = _notesTime[i] * _notesSpeed;
 
             GameObject notes = Instantiate(_noteObj, new Vector3(inputJson.notes[i].block, 0.55f, z), _noteObj.gameObject.transform.rotation);
-            
-            if(i == 0)
-            {
-                _jumpObj.transform.position = new Vector3(inputJson.notes[i].block, 0.55f, z);
-            }
 
             BridgeNotes thisBridgeNotes = notes.GetComponent<BridgeNotes>();
             thisBridgeNotes.NotesSpeed = _notesSpeed;

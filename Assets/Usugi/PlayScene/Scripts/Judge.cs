@@ -4,6 +4,7 @@ public class Judge : MonoBehaviour
 {
     [SerializeField] private GameObject[] _messageObj;//プレイヤーに判定を伝えるゲームオブジェクト
     [SerializeField] BridgeNotesGenerator _notesManager;//スクリプト「notesManager」を入れる変数
+    public BridgeNotesGenerator NotesGenerator => _notesManager;
 
     float _perfectTime = 0.1f;
     float _greatTime = 0.15f;
@@ -26,8 +27,6 @@ public class Judge : MonoBehaviour
     {
         if (_notesManager._notesTime.Count == 0)
         {
-            Debug.Log("もうノーツなし");
-
             MusicManager.Instance.CurrentState.Value = MusicManager.GameState.End;
             return false;
         }

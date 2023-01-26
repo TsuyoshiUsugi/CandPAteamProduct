@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UniRx;
+using System;
 
 public class MusicManager : SingletonMonobehavior<MusicManager>
 {
@@ -14,6 +15,8 @@ public class MusicManager : SingletonMonobehavior<MusicManager>
     public float StartTime => _startTime;
 
     [SerializeField] string _nextScene;
+    int _sceneMoveTime = 5;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,8 @@ public class MusicManager : SingletonMonobehavior<MusicManager>
         _music = Resources.Load("Music/" + SongInfoManager.Instance.SongPath) as AudioClip;
         _audio.clip = _music;
         _currentState.Value = GameState.Ready;
+
+        _currentState.Where(state => state == GameState.End).Delay(TimeSpan.FromSeconds(_sceneMoveTime)).Subscribe(_ => EndTask());
     }
 
     // Update is called once per frame
@@ -34,11 +39,11 @@ public class MusicManager : SingletonMonobehavior<MusicManager>
             _currentState.Value = GameState.Playing;
             _audio.Play();
         }
+    }
 
-        if(_currentState.Value == GameState.End)
-        {
-            SceneManager.LoadScene(_nextScene);
-        }
+    void EndTask()
+    {
+        SceneManager.LoadScene(_nextScene);
     }
 
     public enum GameState

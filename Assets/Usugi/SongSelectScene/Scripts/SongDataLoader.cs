@@ -11,6 +11,7 @@ public class SongDataLoader : MonoBehaviour
     [SerializeField, Header("曲データのリスト")] List<ShowSongDateObj> _songDataList;
     [SerializeField] GameObject _songPrefab;
     [SerializeField] GameObject _anker;
+    [SerializeField] AudioSource _audioSource;
 
     [SerializeField] Text _songName;
     [SerializeField] Text _diffCulty;
@@ -38,6 +39,7 @@ public class SongDataLoader : MonoBehaviour
             Debug.Log(i);
             int index = i;
             songPrefab.GetComponent<Button>().onClick.AddListener(() => ShowInfo(index));
+            songPrefab.GetComponent<Button>().onClick.AddListener(() => _audioSource.Play());
         }
     }
 
