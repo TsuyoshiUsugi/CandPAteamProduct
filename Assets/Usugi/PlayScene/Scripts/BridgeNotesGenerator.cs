@@ -43,7 +43,7 @@ public class BridgeNotesGenerator : MonoBehaviour
 
             float z = _notesTime[i] * _notesSpeed;
 
-            GameObject notes = Instantiate(_noteObj, new Vector3(inputJson.notes[i].block, 0.55f, z), Quaternion.identity);
+            GameObject notes = Instantiate(_noteObj, new Vector3(inputJson.notes[i].block, 0.55f, z), Quaternion.Euler(0, 90, 0));
             
             if(i == 0)
             {

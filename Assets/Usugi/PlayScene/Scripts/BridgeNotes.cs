@@ -22,7 +22,7 @@ public class BridgeNotes : MonoBehaviour
     {
         if(_musicManager.CurrentState.Value == MusicManager.GameState.Playing)
         {
-            transform.position -= transform.forward * Time.deltaTime * _notesSpeed;
+            transform.position -= -transform.right * Time.deltaTime * _notesSpeed;
         }
 
     }
