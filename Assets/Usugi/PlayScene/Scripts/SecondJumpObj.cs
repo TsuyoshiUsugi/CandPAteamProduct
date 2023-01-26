@@ -19,7 +19,7 @@ public class SecondJumpObj : MonoBehaviour
     [SerializeField] AudioClip _audioClip;
 
     Rigidbody _rb;
-    bool isGround;
+    bool _isGround;
 
     const float _hightLimit = 0.7f;
 
@@ -31,18 +31,25 @@ public class SecondJumpObj : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (!isGround) return;
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            if(_audioSource.isPlaying)
+            {
+                _audioSource.Stop();
+            }
             _audioSource.PlayOneShot(_audioClip);
+
+            if (!_isGround) return;
+
             _rb.AddForce(_jumpForce);
-            isGround = false;
+            _isGround = false;
         }
+
 
         if(_jumpObj.transform.position.y > _hightLimit)
         {
-            _rb.velocity = new Vector3(0, 0, 0);
+            transform.position = new Vector3(transform.position.x, _hightLimit, transform.position.z);
         }
     }
 
@@ -50,7 +57,7 @@ public class SecondJumpObj : MonoBehaviour
     {
         if(other.gameObject.tag == "Ground")
         {
-            isGround = true;
+            _isGround = true;
         }
     }
 }

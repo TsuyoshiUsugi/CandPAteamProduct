@@ -12,6 +12,7 @@ public class SongDataLoader : MonoBehaviour
     [SerializeField] GameObject _songPrefab;
     [SerializeField] GameObject _anker;
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] List<Sprite> _songImages;
 
     [SerializeField] Text _songName;
     [SerializeField] Text _diffCulty;
@@ -36,6 +37,10 @@ public class SongDataLoader : MonoBehaviour
         {
             GameObject songPrefab = Instantiate(_songPrefab);
             songPrefab.gameObject.transform.SetParent(_anker.transform);
+
+            songPrefab.GetComponent<Image>().sprite = _songImages[i];
+
+
             Debug.Log(i);
             int index = i;
             songPrefab.GetComponent<Button>().onClick.AddListener(() => ShowInfo(index));
