@@ -11,7 +11,7 @@ public class Judge : MonoBehaviour
 
     void Update()
     {
-        if (MusicManager.Instance.CurrentState != MusicManager.GameState.Playing) return;
+        if (MusicManager.Instance.CurrentState.Value != MusicManager.GameState.Playing) return;
 
         if (!CheckNotes()) return;
 
@@ -28,7 +28,7 @@ public class Judge : MonoBehaviour
         {
             Debug.Log("‚à‚¤ƒm[ƒc‚È‚µ");
 
-            MusicManager.Instance.CurrentState = MusicManager.GameState.End;
+            MusicManager.Instance.CurrentState.Value = MusicManager.GameState.End;
             return false;
         }
         return true;

@@ -1,12 +1,13 @@
 using UnityEngine;
+using UniRx;
 
 public class MusicManager : SingletonMonobehavior<MusicManager>
 {
     AudioSource _audio;
     AudioClip _music;
 
-    [SerializeField] GameState _currentState;
-    public GameState CurrentState { get => _currentState; set => _currentState = value; }
+    [SerializeField] ReactiveProperty<GameState> _currentState;
+    public ReactiveProperty<GameState> CurrentState { get => _currentState; set => _currentState = value; }
 
     float _startTime;
     public float StartTime => _startTime;
@@ -17,17 +18,17 @@ public class MusicManager : SingletonMonobehavior<MusicManager>
         _audio = GetComponent<AudioSource>();
         _music = Resources.Load("Music/" + SongInfoManager.Instance.SongPath) as AudioClip;
         _audio.clip = _music;
-        _currentState = GameState.Ready;
+        _currentState.Value = GameState.Ready;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && _currentState == GameState.Ready)
+        if(Input.GetKeyDown(KeyCode.Space) && _currentState.Value == GameState.Ready)
         {
             _startTime = Time.time;
 
-            _currentState = GameState.Playing;
+            _currentState.Value = GameState.Playing;
             _audio.Play();
         }
 

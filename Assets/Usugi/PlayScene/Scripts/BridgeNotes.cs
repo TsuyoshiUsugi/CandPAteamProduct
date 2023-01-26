@@ -20,7 +20,7 @@ public class BridgeNotes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_musicManager.CurrentState == MusicManager.GameState.Playing)
+        if(_musicManager.CurrentState.Value == MusicManager.GameState.Playing)
         {
             transform.position -= transform.forward * Time.deltaTime * _notesSpeed;
         }
