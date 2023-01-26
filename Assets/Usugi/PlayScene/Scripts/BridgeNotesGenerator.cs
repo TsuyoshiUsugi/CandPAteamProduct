@@ -8,21 +8,36 @@ public class BridgeNotesGenerator : MonoBehaviour
     static int _noteNum;
     public static int NotesNum => _noteNum;
 
-    //‹È–¼
-    [SerializeField] private string songName;
-
     public List<int> _laneNum = new List<int>();
     public List<int> _noteType = new List<int>();
     public List<float> _notesTime = new List<float>();
     public List<GameObject> _notesObj = new List<GameObject>();
 
     [SerializeField] private float _notesSpeed;
-    [SerializeField] GameObject _noteObj;
+
+    GameObject _noteObj;
     [SerializeField] GameObject _jumpObj;
+
+
+    [SerializeField] List<GameObject> _notes;
 
     void Start()
     {
+        SetNotesType();
+
         Load();
+    }
+
+    void SetNotesType()
+    {
+        if(SongInfoManager.Instance.SongPath == "Lofi")
+        {
+            _noteObj = _notes[0];
+        }
+        else if(SongInfoManager.Instance.SongPath == "kawaii future bass")
+        {
+            _noteObj = _notes[1];
+        }
     }
 
     private void Load()
@@ -43,7 +58,7 @@ public class BridgeNotesGenerator : MonoBehaviour
 
             float z = _notesTime[i] * _notesSpeed;
 
-            GameObject notes = Instantiate(_noteObj, new Vector3(inputJson.notes[i].block, 0.55f, z), Quaternion.Euler(0, 90, 0));
+            GameObject notes = Instantiate(_noteObj, new Vector3(inputJson.notes[i].block, 0.55f, z), _noteObj.gameObject.transform.rotation);
             
             if(i == 0)
             {

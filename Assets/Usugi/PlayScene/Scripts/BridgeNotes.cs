@@ -12,6 +12,8 @@ public class BridgeNotes : MonoBehaviour
 
     MusicManager _musicManager;
 
+    [SerializeField] List<GameObject> _notes;
+
     private void Start()
     {
         _musicManager = FindObjectOfType<MusicManager>();
@@ -22,8 +24,7 @@ public class BridgeNotes : MonoBehaviour
     {
         if(_musicManager.CurrentState.Value == MusicManager.GameState.Playing)
         {
-            transform.position -= -transform.right * Time.deltaTime * _notesSpeed;
+            transform.position -= transform.forward * Time.deltaTime * _notesSpeed;
         }
-
     }
 }
