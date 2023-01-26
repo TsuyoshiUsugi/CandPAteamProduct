@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Usugi/ResultScene.meta
 guid: 72fc16042896ebe4aad5597b92c94ae6
 folderAsset: yes
+========
+guid: 882acabca0ea7bb429685bcd8a79a3a3
+>>>>>>>> parent of fd60abb (タイトルとリザルトに追加):Assets/Akasaka/New Material.mat.rej.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
