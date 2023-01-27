@@ -41,7 +41,7 @@ public class PlaySceneUIManager : MonoBehaviour
     void ReadyUIAnim()
     {
         _howToStartButton.gameObject.SetActive(true);
-        _howToStartButton.DOFade(0, 1f).SetLoops(-1, LoopType.Yoyo);
+        _howToStartButton.DOFade(0, 1f).SetLoops(-1, LoopType.Yoyo).SetLink(_howToStartButton.gameObject);
     }
 
     void CombUICount(int comb)
@@ -66,7 +66,7 @@ public class PlaySceneUIManager : MonoBehaviour
                 score,
                 0.5f
             )
-            .OnUpdate(() => _scoreCount.text = $"SCORE:{_score.ToString("00000")}");
+            .OnUpdate(() => _scoreCount.text = $"SCORE:{_score.ToString("00000")}").SetLink(_scoreCount.gameObject);
     }
 
 }
