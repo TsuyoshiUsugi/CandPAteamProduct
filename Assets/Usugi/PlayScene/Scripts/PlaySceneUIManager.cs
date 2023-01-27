@@ -33,8 +33,8 @@ public class PlaySceneUIManager : MonoBehaviour
             .Where(state => state == MusicManager.GameState.Ready)
             .Subscribe(_ => ReadyUIAnim()).AddTo(this);
 
-        ScoreManager.Instance._combo.Subscribe(comb => CombUICount(comb));
-        ScoreManager.Instance._score.Subscribe(score => ScoreUICount(score));
+        ScoreManager.Instance._combo.Subscribe(comb => CombUICount(comb)).AddTo(this);
+        ScoreManager.Instance._score.Subscribe(score => ScoreUICount(score)).AddTo(this);
 
     }
 
