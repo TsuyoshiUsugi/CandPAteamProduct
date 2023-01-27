@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UniRx;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// ÉXÉRÉAèÓïÒÇï€éùÇ∑ÇÈ
@@ -27,12 +28,7 @@ public class ScoreManager : MonoBehaviour
 
     public void Awake()
     {
-        _combo.Value = 0;
-        _score.Value = 0;
-        _perfect = 0;
-        _great = 0;
-        _bad = 0;
-        _miss = 0;
+        SceneManager.sceneLoaded += SceneLoaded;
 
         if (Instance == null)
         {
@@ -45,6 +41,21 @@ public class ScoreManager : MonoBehaviour
         }
 
         MusicManager.Instance.CurrentState.Where(state => state == MusicManager.GameState.End).Subscribe(_ => SaveHighScore());
+    }
+
+    void SceneLoaded(Scene nextScene, LoadSceneMode mode)
+    {
+        if(nextScene.name == "PlayScene02")
+        {
+            Debug.Log("èâä˙âª");
+            
+            _combo.Value = 0;
+            _score.Value = 0;
+            _perfect = 0;
+            _great = 0;
+            _bad = 0;
+            _miss = 0;
+        }
     }
 
     private void Update()

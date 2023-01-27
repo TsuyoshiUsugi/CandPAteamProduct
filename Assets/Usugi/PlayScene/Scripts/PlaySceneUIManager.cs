@@ -33,15 +33,15 @@ public class PlaySceneUIManager : MonoBehaviour
             .Where(state => state == MusicManager.GameState.Ready)
             .Subscribe(_ => ReadyUIAnim()).AddTo(this);
 
-        ScoreManager.Instance._combo.Subscribe(comb => CombUICount(comb));
-        ScoreManager.Instance._score.Subscribe(score => ScoreUICount(score));
+        ScoreManager.Instance._combo.Subscribe(comb => CombUICount(comb)).AddTo(this);
+        ScoreManager.Instance._score.Subscribe(score => ScoreUICount(score)).AddTo(this);
 
     }
 
     void ReadyUIAnim()
     {
         _howToStartButton.gameObject.SetActive(true);
-        _howToStartButton.DOFade(0, 1f).SetLoops(-1, LoopType.Yoyo).SetLink(_howToStartButton.gameObject);
+        _howToStartButton.DOFade(0, 1f).SetLoops(-1, LoopType.Yoyo).SetLink(gameObject);
     }
 
     void CombUICount(int comb)
@@ -66,7 +66,7 @@ public class PlaySceneUIManager : MonoBehaviour
                 score,
                 0.5f
             )
-            .OnUpdate(() => _scoreCount.text = $"SCORE:{_score.ToString("00000")}").SetLink(_scoreCount.gameObject);
+            .OnUpdate(() => _scoreCount.text = $"SCORE:{_score.ToString("00000")}").SetLink(gameObject);
     }
 
 }
