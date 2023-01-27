@@ -15,6 +15,13 @@ public class PlaySceneUIManager : MonoBehaviour
     [SerializeField] Text _scoreCount;
     int _score;
 
+    private void Awake()
+    {
+        _howToStartButton.gameObject.SetActive(true);
+        _combCount.gameObject.SetActive(true);
+        _scoreCount.gameObject.SetActive(true);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

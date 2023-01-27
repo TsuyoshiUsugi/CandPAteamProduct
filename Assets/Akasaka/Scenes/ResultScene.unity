@@ -1368,6 +1368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d887b4a621e8d9d458c4ef9beb217c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1 &2024822281
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,3 +1449,5 @@ RectTransform:
   m_AnchoredPosition: {x: 144, y: 7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+>>>>>>> parent of ef63165 (遊び方追加)
