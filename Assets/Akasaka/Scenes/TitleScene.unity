@@ -1284,7 +1284,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0, y: 101}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 669.2, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060354909
 MonoBehaviour:
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.975201, g: 1, b: 0.44716978, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1308,18 +1308,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ca025765b569c194284d6bd235eaec5a, type: 3}
-    m_FontSize: 77
+    m_FontSize: 96
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 6
-    m_MaxSize: 77
+    m_MaxSize: 102
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: ELECIT
 --- !u!222 &1060354910
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1613,7 +1613,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 12.23, y: 5.9, z: 0}
 --- !u!1 &1716451596
 GameObject:
@@ -1898,7 +1898,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 52d4d3a8ef2eb524d89b22c549142471, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8d714a1c04ce18647ac14220f5316aef, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
