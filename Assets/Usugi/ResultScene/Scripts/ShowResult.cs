@@ -6,6 +6,7 @@ public class ShowResult : MonoBehaviour
 {
     [SerializeField] Text _scoreText;
     [SerializeField] Text _rankText;
+    float _interval = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,7 @@ public class ShowResult : MonoBehaviour
 
         resultSequence
             .AppendCallback(() => ShowResultPoint())
+            .AppendInterval(_interval)
             .AppendCallback(() => ShowResultRank());      
     }
 
@@ -30,7 +32,7 @@ public class ShowResult : MonoBehaviour
                 score,
                 1f
             )
-            .OnUpdate(() => _scoreText.text = $"SCORE:{num.ToString("00000")}");
+            .OnUpdate(() => _scoreText.text = $"{num.ToString("00000")}");
     }
 
     void ShowResultRank()
