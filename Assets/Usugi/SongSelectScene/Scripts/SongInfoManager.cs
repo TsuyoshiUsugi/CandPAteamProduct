@@ -13,28 +13,6 @@ public class SongInfoManager : SingletonMonobehavior<SongInfoManager>
     [SerializeField] GuidReference _startButton;
     [SerializeField] string _playScene;
 
-    Scene _songSelectScene;
-
-    //private void Start()
-    //{
-        
-    //    _startButton.gameObject.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(_playScene));
-
-    //    _songSelectScene = SceneManager.GetSceneByName("SongSelectScene");
-    //    SceneManager.sceneLoaded += SubscribeButtonEvent;
-    //}
-
-    //void SubscribeButtonEvent(Scene scene, LoadSceneMode mode)
-    //{
-    //    if(scene == _songSelectScene)
-    //    {
-
-    //        Debug.Log("ok");
-    //        _startButton.gameObject.GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(_playScene));
-
-    //    }
-    //}
-
     public void MoveToPlayScene()
     {
         SceneManager.LoadScene(_playScene);

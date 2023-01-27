@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0ec18d1c6875a44936fab9158308bf, type: 3}
   m_Name: kawaii future bass
   m_EditorClassIdentifier: 
-  _songName: Fancy2
-  _musicFilePath: Fancy2
-  _musicSheetPath: Fancy2
+  _songName: kawaii future bass
+  _musicFilePath: kawaii future bass
+  _musicSheetPath: kawaii future bass
   _songDiff: 6
   _highScore: 29850
