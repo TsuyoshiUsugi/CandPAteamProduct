@@ -15,5 +15,6 @@ public class Initialize : MonoBehaviour
         scoreManager._bad = 0;
         scoreManager._miss = 0;
         scoreManager._score.Value = 0;
+        scoreManager._combo.Value = 0;
     }
 }
